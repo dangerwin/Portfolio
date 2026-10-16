@@ -1,0 +1,23 @@
+# Editor / operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*.log
+.vscode/
+.idea/
+
+# Temporary build files, if this repository is edited later
+node_modules/
+.cache/
+dist/
+*.tmp
+
+# Local editable source, previews and legacy designs (not published)
+/.source/
+
+# Keep any future personal music files out of the public repository
+*.mp3
+*.m4a
+*.flac
