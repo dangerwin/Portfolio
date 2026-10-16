@@ -1,0 +1,35 @@
+<!-- Local-only soundtrack console. Its MP3 lives in the Git-ignored .source folder. -->
+<aside id="dan-media-player" class="dan-media-player" aria-label="Background music player" hidden>
+  <audio id="dan-media-audio" preload="metadata" autoplay loop playsinline></audio>
+  <div class="dan-media-header">
+    <span class="dan-media-indicator"><span class="dan-media-led" aria-hidden="true"></span> DAN AUDIO / 001</span>
+    <button id="dan-media-collapse" class="dan-media-collapse" type="button" aria-label="Minimize music player" aria-expanded="true" aria-controls="dan-media-body">−</button>
+  </div>
+  <div class="dan-media-body" id="dan-media-body">
+    <div class="dan-media-now">
+      <button id="dan-media-toggle" class="dan-media-play" type="button" aria-label="Play background music" aria-pressed="false">
+        <svg class="dan-media-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        <svg class="dan-media-pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+      </button>
+      <div class="dan-media-copy">
+        <strong>The Dark Knight — Main Theme</strong>
+        <small>HANS ZIMMER · NOW PLAYING</small>
+      </div>
+      <span class="dan-media-waves" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+    </div>
+    <div class="dan-media-timeline">
+      <output id="dan-media-current" for="dan-media-seek">0:00</output>
+      <input id="dan-media-seek" type="range" min="0" max="1000" step="1" value="0" aria-label="Seek music track" />
+      <output id="dan-media-duration" for="dan-media-seek">--:--</output>
+    </div>
+    <div class="dan-media-footer">
+      <span class="dan-media-status" id="dan-media-status" role="status" aria-live="polite">LOADING AUDIO...</span>
+      <div class="dan-media-volume">
+        <button id="dan-media-mute" class="dan-media-mute" type="button" aria-label="Mute music" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3Zm12 0c2 2 2 4 0 6m3-9c4 4 4 8 0 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <input id="dan-media-volume" type="range" min="0" max="100" step="1" value="45" aria-label="Music volume" />
+      </div>
+    </div>
+  </div>
+</aside>

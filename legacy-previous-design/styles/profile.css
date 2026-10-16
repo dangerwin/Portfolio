@@ -1,0 +1,216 @@
+/* Standalone portrait-reveal styles; layout, surrounding text and colors can be
+   further themed by the main stylesheet. The image assets are both 4:5 portraits. */
+.profile-card[data-profile] {
+  --profile-gold: #cba76a;
+  --profile-shadow: rgba(202, 159, 84, 0.24);
+  position: relative;
+  display: block;
+  min-width: 0;
+  border-radius: 18px;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  isolation: isolate;
+}
+
+.profile-card[data-profile]:focus {
+  outline: none;
+}
+
+.profile-card[data-profile]:focus-visible {
+  outline: 2px solid var(--profile-gold);
+  outline-offset: 6px;
+}
+
+.profile-card[data-profile] .profile-image-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid rgba(203, 167, 106, 0.34);
+  border-radius: 18px;
+  background: #111820;
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.46), 0 0 30px rgba(203, 167, 106, 0.06);
+  transition: border-color 520ms ease, box-shadow 650ms ease;
+}
+
+.profile-card[data-profile] .profile-image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center center;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  backface-visibility: hidden;
+}
+
+.profile-card[data-profile] .profile-image--mask {
+  z-index: 1;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 850ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.profile-card[data-profile] .profile-image--me {
+  z-index: 2;
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+  transform: translateX(2%) scale(1.055);
+  transition: clip-path 880ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 560ms ease,
+    transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* The highlight creates a gold edge as the second portrait sweeps into view. */
+.profile-card[data-profile] .profile-image-frame::before,
+.profile-card[data-profile] .profile-image-frame::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+
+.profile-card[data-profile] .profile-image-frame::before {
+  z-index: 3;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(16, 20, 26, 0.02) 40%, rgba(8, 10, 15, 0.5) 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 231, 180, 0.08);
+}
+
+.profile-card[data-profile] .profile-image-frame::after {
+  z-index: 4;
+  top: -12%;
+  bottom: -12%;
+  left: -23%;
+  width: 28%;
+  opacity: 0;
+  background: linear-gradient(90deg, transparent, rgba(231, 194, 119, 0.08) 24%, rgba(252, 228, 170, 0.38) 50%, transparent);
+  filter: blur(6px);
+  transform: translateX(-100%) skewX(-12deg);
+  transition: transform 880ms cubic-bezier(0.16, 1, 0.3, 1), opacity 420ms ease;
+}
+
+.profile-card[data-profile] .profile-caption {
+  transition: color 400ms ease, transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Both caption variants are in the HTML; only the active identity is shown. */
+.profile-card[data-profile] .profile-caption-label {
+  display: inline-grid;
+  align-items: center;
+  justify-items: end;
+}
+
+.profile-card[data-profile] .profile-mask-label,
+.profile-card[data-profile] .profile-me-label {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+  transition: opacity 360ms ease, transform 480ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.profile-card[data-profile] .profile-mask-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.profile-card[data-profile] .profile-me-label {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+/* Keyboard focus and an explicitly pinned state always reveal the real photo. */
+.profile-card[data-profile]:is(:focus, [aria-pressed='true']) .profile-image--mask {
+  opacity: 0.08;
+  transform: scale(1.035);
+}
+
+.profile-card[data-profile]:is(:focus, [aria-pressed='true']) .profile-image--me {
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+  transform: translateX(0) scale(1);
+}
+
+.profile-card[data-profile]:is(:focus, [aria-pressed='true']) .profile-image-frame {
+  border-color: rgba(225, 190, 123, 0.75);
+  box-shadow: 0 24px 65px rgba(0, 0, 0, 0.42), 0 0 48px var(--profile-shadow);
+}
+
+.profile-card[data-profile]:is(:focus, [aria-pressed='true']) .profile-image-frame::after {
+  opacity: 0.7;
+  transform: translateX(440%) skewX(-12deg);
+}
+
+.profile-card[data-profile]:is(:focus, [aria-pressed='true']) .profile-caption {
+  transform: translateY(-2px);
+}
+
+.profile-card[data-profile]:is(:focus, [aria-pressed='true']) .profile-mask-label {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+.profile-card[data-profile]:is(:focus, [aria-pressed='true']) .profile-me-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Keep tap-to-toggle predictable on touchscreens with emulated sticky hover. */
+@media (hover: hover) and (pointer: fine) {
+  .profile-card[data-profile]:hover .profile-image--mask {
+    opacity: 0.08;
+    transform: scale(1.035);
+  }
+
+  .profile-card[data-profile]:hover .profile-image--me {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: translateX(0) scale(1);
+  }
+
+  .profile-card[data-profile]:hover .profile-image-frame {
+    border-color: rgba(225, 190, 123, 0.75);
+    box-shadow: 0 24px 65px rgba(0, 0, 0, 0.42), 0 0 48px var(--profile-shadow);
+  }
+
+  .profile-card[data-profile]:hover .profile-image-frame::after {
+    opacity: 0.7;
+    transform: translateX(440%) skewX(-12deg);
+  }
+
+  .profile-card[data-profile]:hover .profile-caption {
+    transform: translateY(-2px);
+  }
+
+  .profile-card[data-profile]:hover .profile-mask-label {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  .profile-card[data-profile]:hover .profile-me-label {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-card[data-profile] .profile-image-frame,
+  .profile-card[data-profile] .profile-image,
+  .profile-card[data-profile] .profile-image-frame::after,
+  .profile-card[data-profile] .profile-caption,
+  .profile-card[data-profile] .profile-mask-label,
+  .profile-card[data-profile] .profile-me-label {
+    transition: none;
+    animation: none;
+  }
+
+  .profile-card[data-profile] .profile-image-frame::after {
+    display: none;
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "dan-gerwin-portfolio",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "description": "Editable dark-and-gold portfolio for Dan Gerwin",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node --watch server.mjs",
+    "test": "node tests/verify.mjs"
+  }
+}

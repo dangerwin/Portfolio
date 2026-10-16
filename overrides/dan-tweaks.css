@@ -1,0 +1,87 @@
+/* Light-touch DAN personalization of the captured reference theme.
+ * Keep all original sizing, grid/card structure, fonts and animations intact.
+ */
+:root {
+  --color-purple-400: #f04450;
+  --color-purple-500: #bf202c;
+  --accent: #ef3441;
+  --accent-bg: #ef344120;
+}
+:root[data-theme='light'] {
+  --color-purple-400: #a51a28;
+  --color-purple-500: #87101c;
+  --accent: #a51a28;
+  --accent-bg: #a51a281a;
+}
+
+/* Dan's portrait is always the Me photo: no masked image or reveal overlay. */
+.dan-profile-photo {
+  width: 128px;
+  height: 128px;
+  flex: 0 0 auto;
+}
+@media (min-width: 640px) {
+  .dan-profile-photo {
+    width: 164px;
+    height: 164px;
+  }
+}
+
+/* An unavailable destination must never act like a real outbound link. */
+a[aria-disabled='true'] {
+  opacity: .5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* The downloaded technology icons are kept local and embedded in index.html. */
+.dan-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+  padding: 20px 24px 24px;
+}
+.dan-tech-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 111px;
+  min-width: 0;
+  padding: 17px 8px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-grid-subtle, var(--border-grid, #303036));
+  border-radius: 5px;
+  transition: border-color .22s, transform .22s, background .22s;
+}
+.dan-tech-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-grid-strong, #7a7b83);
+  background: var(--bg-surface-hover);
+}
+.dan-tech-card img {
+  display: block;
+  width: 37px;
+  height: 37px;
+  max-width: 100%;
+  object-fit: contain;
+}
+html[data-theme='light'] .dan-tech-card img[alt='GitHub logo'] {
+  filter: invert(1);
+}
+.dan-tech-card span { text-align: center; overflow-wrap: anywhere; }
+@media (max-width: 767px) {
+  .dan-tech-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 18px; }
+}
+@media (max-width: 420px) {
+  .dan-tech-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 16px; }
+}
+
+/* Keep the original interactive five-string typography touch-friendly. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}

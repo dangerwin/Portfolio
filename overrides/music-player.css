@@ -1,0 +1,76 @@
+/* Compact soundtrack console — matches the reference's fine borders,
+   mono labels and cinematic red, without altering the existing grid. */
+.dan-media-player {
+  --dm-accent: #f04450;
+  --dm-text: #f5f3f4;
+  --dm-muted: #a4a0a5;
+  --dm-border: #3c252a;
+  --dm-panel: rgba(12, 12, 16, .97);
+  position: fixed;
+  inset: auto 20px 20px auto;
+  z-index: 120;
+  width: min(344px, calc(100vw - 28px));
+  color: var(--dm-text);
+  background: var(--dm-panel);
+  border: 1px solid var(--dm-border);
+  border-top: 2px solid var(--dm-accent);
+  border-radius: 8px;
+  box-shadow: 0 14px 45px rgba(0, 0, 0, .35), 0 0 28px rgba(208, 25, 43, .08);
+  font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
+  text-align: left;
+  overflow: hidden;
+}
+.dan-media-player[hidden] { display: none !important; }
+.dan-media-player button { -webkit-tap-highlight-color: transparent; }
+.dan-media-player button:focus-visible,
+.dan-media-player input:focus-visible { outline: 2px solid var(--dm-accent); outline-offset: 3px; }
+.dan-media-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 13px; border-bottom: 1px solid var(--dm-border); }
+.dan-media-indicator { display: inline-flex; align-items: center; gap: 8px; min-width: 0; text-transform: uppercase; color: var(--dm-muted); font-size: 9px; letter-spacing: .1em; }
+.dan-media-led { width: 6px; height: 6px; flex: none; transform: rotate(45deg); border: 1px solid var(--dm-accent); }
+.dan-media-player.is-playing .dan-media-led { background: var(--dm-accent); box-shadow: 0 0 10px rgba(240, 68, 80, .65); }
+.dan-media-collapse { display: grid; place-items: center; width: 26px; height: 23px; flex: none; background: transparent; color: var(--dm-muted); border: 1px solid transparent; border-radius: 3px; cursor: pointer; font-size: 19px; line-height: 1; }
+.dan-media-collapse:hover { color: var(--dm-accent); border-color: var(--dm-border); }
+.dan-media-body { padding: 16px 15px 13px; }
+.dan-media-now { display: flex; align-items: center; gap: 12px; }
+.dan-media-play { display: grid; place-items: center; flex: none; width: 43px; height: 43px; color: #fff; background: #be2936; border: 1px solid #f04450; border-radius: 4px; cursor: pointer; transition: background .2s, transform .2s; }
+.dan-media-play:hover { background: #e53240; transform: translateY(-1px); }
+.dan-media-play svg { width: 19px; height: 19px; fill: currentColor; }
+.dan-media-play .dan-media-pause-icon { display: none; }
+.dan-media-player.is-playing .dan-media-play-icon { display: none; }
+.dan-media-player.is-playing .dan-media-pause-icon { display: block; }
+.dan-media-copy { min-width: 0; flex: 1; }
+.dan-media-copy strong { display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: var(--dm-text); font: 600 14px/1.35 'Jura', 'Roboto Mono', monospace; letter-spacing: .04em; }
+.dan-media-copy small { display: block; margin-top: 4px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: var(--dm-muted); font-size: 9px; line-height: 1.4; }
+.dan-media-waves { display: flex; align-items: center; gap: 3px; height: 25px; flex: none; }
+.dan-media-waves span { width: 2px; height: 8px; background: var(--dm-accent); opacity: .42; transform-origin: center; }
+.dan-media-player.is-playing .dan-media-waves span { animation: dan-media-wave .85s ease-in-out infinite alternate; opacity: 1; }
+.dan-media-waves span:nth-child(2) { animation-delay: -.28s !important; }
+.dan-media-waves span:nth-child(3) { animation-delay: -.5s !important; }
+.dan-media-waves span:nth-child(4) { animation-delay: -.12s !important; }
+@keyframes dan-media-wave { from { height: 5px; } to { height: 23px; } }
+.dan-media-timeline { display: grid; grid-template-columns: 36px minmax(0, 1fr) 36px; align-items: center; gap: 9px; margin-top: 19px; color: var(--dm-muted); font-size: 9px; font-variant-numeric: tabular-nums; }
+.dan-media-timeline output:last-child { text-align: right; }
+.dan-media-player input[type='range'] { appearance: none; -webkit-appearance: none; width: 100%; height: 4px; margin: 0; cursor: pointer; border: 0; border-radius: 99px; background: linear-gradient(to right, var(--dm-accent) var(--dm-progress, 0%), #444147 var(--dm-progress, 0%)); }
+.dan-media-player input[type='range']::-webkit-slider-thumb { appearance: none; -webkit-appearance: none; width: 10px; height: 10px; border-radius: 50%; border: 1px solid #f3b2b8; background: var(--dm-accent); }
+.dan-media-player input[type='range']::-moz-range-thumb { width: 9px; height: 9px; border-radius: 50%; border: 1px solid #f3b2b8; background: var(--dm-accent); }
+.dan-media-footer { display: flex; align-items: center; justify-content: space-between; gap: 7px; margin-top: 16px; padding-top: 11px; border-top: 1px solid var(--dm-border); }
+.dan-media-status { font-size: 9px; line-height: 1.5; color: var(--dm-muted); min-width: 0; }
+.dan-media-volume { display: flex; align-items: center; gap: 8px; width: 100px; flex: none; }
+.dan-media-mute { display: grid; place-items: center; color: var(--dm-muted); background: transparent; border: 0; cursor: pointer; padding: 3px; }
+.dan-media-mute svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.7; }
+.dan-media-mute:hover, .dan-media-mute[aria-pressed='true'] { color: var(--dm-accent); }
+.dan-media-player.is-collapsed { width: 230px; }
+.dan-media-player.is-collapsed .dan-media-body { display: none; }
+.dan-media-player.is-collapsed .dan-media-header { border-bottom: 0; }
+.dan-media-player.is-collapsed .dan-media-collapse { font-size: 18px; }
+html[data-theme='light'] .dan-media-player { --dm-panel: rgba(252, 249, 248, .98); --dm-text: #251a1e; --dm-muted: #64545a; --dm-border: #d9c2c6; --dm-accent: #b21e2c; box-shadow: 0 10px 32px rgba(25, 15, 15, .16); }
+html[data-theme='light'] .dan-media-play { background: #a91e2b; }
+@media (max-width: 520px) {
+  .dan-media-player { inset: auto 14px 14px; width: auto; }
+  .dan-media-player.is-collapsed { inset: auto 14px 14px auto; width: 200px; }
+  .dan-media-body { padding: 13px; }
+  .dan-media-copy strong { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dan-media-player *, .dan-media-player *::before, .dan-media-player *::after { animation: none !important; transition: none !important; }
+}

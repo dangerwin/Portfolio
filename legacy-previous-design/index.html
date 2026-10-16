@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#090c0f" />
+    <meta name="description" content="Dan Gerwin — fourth-year Computer Engineering student, designer, and curious builder. Explore work, projects, and ways to connect." />
+    <meta name="author" content="Dan Gerwin" />
+    <title>Dan Gerwin — Computer Engineering & Design</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles/lettering.css" />
+    <link rel="stylesheet" href="./styles/profile.css" />
+    <script type="module" src="./js/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
+
+    <header class="site-header" id="top">
+      <a href="#top" class="brand" aria-label="Dan Gerwin, back to top">
+        <span class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 46 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23 4 28 12 38 8 35 18 43 24 31 25 23 36 15 25 3 24 11 18 8 8 18 12 23 4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M16 22H30" stroke="currentColor" stroke-width="1.5"/></svg>
+        </span>
+        <span class="brand-name">DAN<span class="brand-dot">.</span><span class="brand-sub">GERWIN</span></span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="main-navigation" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+
+      <nav class="nav-links" id="main-navigation" aria-label="Main navigation">
+        <a href="#about"><span>01</span> About</a>
+        <a href="#experience"><span>02</span> Experience</a>
+        <a href="#projects"><span>03</span> Projects</a>
+        <a href="#contact" class="nav-contact">Let's talk <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-top section-frame">
+          <div class="hero-topline"><span class="line-square" aria-hidden="true"></span> PERSONAL PORTFOLIO <span class="topline-divider">/</span> EST. 2026</div>
+          <div class="availability"><span class="availability-pulse" aria-hidden="true"></span> OPEN TO OPPORTUNITIES</div>
+        </div>
+
+        <div class="hero-main section-frame">
+          <div class="hero-content" data-reveal>
+            <p class="hero-overline"><span class="label-tick"></span> DESIGNER'S EYE. ENGINEER'S MIND.</p>
+            <h1 id="hero-title">DAN <span>GERWIN<span class="hero-period">.</span></span></h1>
+            <div class="hero-description-row">
+              <p>Computer Engineering student, curious creator, and a designer who enjoys turning ideas into something real.</p>
+              <a class="round-link" href="#about" aria-label="Explore Dan's portfolio"><span aria-hidden="true">↘</span></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="lettering-wrap" data-reveal>
+          <div class="lettering-head section-frame">
+            <span class="micro-label">SIGNATURE / 001</span>
+            <span class="micro-label lettering-instruction"><span class="animated-asterisk" aria-hidden="true">✳</span> INTERACT WITH THE LINES</span>
+          </div>
+          <div class="lettering-stage">
+            <canvas id="gerwin-lettering" class="lettering-canvas" role="img" aria-label="Hand-drawn interactive lettering spelling GERWIN">GERWIN</canvas>
+          </div>
+          <div class="lettering-foot section-frame">
+            <span class="micro-label">HANDCRAFTED WITH CODE</span>
+            <span class="micro-label">DRAG / HOVER TO DISTURB <span aria-hidden="true">↗</span></span>
+          </div>
+        </div>
+
+        <div class="hero-bottom section-frame">
+          <a href="#about" class="scroll-prompt"><span class="scroll-vertical" aria-hidden="true"></span> SCROLL TO DISCOVER</a>
+          <span class="hero-bottom-right">THE STORY BEHIND THE SCREEN <span aria-hidden="true">↓</span></span>
+        </div>
+      </section>
+
+      <section class="about section-padding" id="about" aria-labelledby="about-title">
+        <div class="section-frame">
+          <div class="section-heading" data-reveal>
+            <span class="section-index"><span class="index-diamond" aria-hidden="true">◆</span> 01 / THE PERSON</span>
+            <h2 id="about-title">BEHIND <span>THE MASK.</span></h2>
+            <span class="section-heading-note">GET TO KNOW ME <span aria-hidden="true">↘</span></span>
+          </div>
+
+          <div class="about-grid">
+            <div class="profile-column" data-reveal>
+              <div class="profile-card" data-profile tabindex="0" role="button" aria-pressed="false" aria-label="Reveal Dan's portrait">
+                <div class="profile-image-frame">
+                  <img class="profile-image profile-image--mask" src="./Assets/Mask.png" alt="Dan Gerwin wearing a mask" width="1122" height="1402" decoding="async" />
+                  <img class="profile-image profile-image--me" src="./Assets/Me.png" alt="Dan Gerwin unmasked" width="1122" height="1402" decoding="async" />
+                </div>
+                <div class="profile-caption">
+                  <span class="profile-caption-index">IDENTITY // 01</span>
+                  <span class="profile-caption-label"><span class="profile-mask-label">THE MASK</span><span class="profile-me-label">THE REAL ME</span></span>
+                  <span class="profile-caption-arrow" aria-hidden="true">↗</span>
+                </div>
+              </div>
+              <p class="profile-hint"><span aria-hidden="true">✳</span> HOVER, FOCUS, OR TAP THE PHOTO TO REVEAL THE PERSON BEHIND THE MASK.</p>
+            </div>
+
+            <div class="about-copy" data-reveal>
+              <div class="eyebrow"><span class="eyebrow-line"></span> A LITTLE ABOUT ME</div>
+              <h3>BUILDING SKILLS.<br /><em>BREAKING LIMITS.</em></h3>
+              <p class="about-lead">Hey, I'm <strong>Dan Gerwin</strong> — a fourth-year Computer Engineering student with a passion for creativity and technology.</p>
+              <p>I have basic skills in UI/UX design and genuinely enjoy learning new technologies. I'm hardworking, adaptable, and eager to apply what I know to real projects while continuing to grow professionally.</p>
+              <p>Whether I'm designing something visual or figuring out how a system works, I'm always looking for opportunities to learn, improve, and build something meaningful.</p>
+              <div class="about-facts">
+                <div><span class="fact-label">FIELD OF STUDY</span><strong>Computer Engineering</strong></div>
+                <div><span class="fact-label">CURRENT LEVEL</span><strong>Fourth-year student</strong></div>
+                <div><span class="fact-label">INTERESTS</span><strong>UI/UX · Technology · Design</strong></div>
+              </div>
+              <a class="text-link" href="#contact">LET'S CONNECT <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+
+          <div class="capabilities" data-reveal aria-labelledby="capabilities-title">
+            <div class="capabilities-head"><h3 id="capabilities-title">WHAT I BRING TO THE TABLE</h3><span>SKILLS / INTERESTS</span></div>
+            <div class="capabilities-grid">
+              <div class="capability"><span>01 / DESIGN</span><strong>UI/UX BASICS</strong><p>Exploring intuitive interfaces and thoughtful visual experiences.</p></div>
+              <div class="capability"><span>02 / CREATIVE</span><strong>SPORTSWEAR DESIGN</strong><p>Experience creating jerseys and graphics for sports.</p></div>
+              <div class="capability"><span>03 / TECHNOLOGY</span><strong>CONTINUOUS LEARNING</strong><p>Curious about new technologies and how to apply them.</p></div>
+              <div class="capability"><span>04 / MINDSET</span><strong>ADAPTABLE & DRIVEN</strong><p>Hardworking and eager to grow through real projects.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="experience section-padding" id="experience" aria-labelledby="experience-title">
+        <div class="section-frame">
+          <div class="section-heading" data-reveal>
+            <span class="section-index"><span class="index-diamond" aria-hidden="true">◆</span> 02 / WHAT I'VE DONE</span>
+            <h2 id="experience-title">EXPERIENCE<span class="gold-dot">.</span></h2>
+            <span class="section-heading-note">CRAFTED ALONG THE WAY</span>
+          </div>
+
+          <div class="experience-row" data-reveal>
+            <div class="experience-range"><span class="experience-topline"></span>2019 <span>—</span> 2022</div>
+            <div class="experience-body">
+              <div class="experience-number">01 / EXPERIENCE</div>
+              <h3>CASMY<br /><span>SPORTSWEAR</span></h3>
+              <p>Designer</p>
+              <p class="experience-description">Created jersey designs and graphics for different sports and sporting events, bringing individual and team identities to life through visual design.</p>
+            </div>
+            <div class="experience-symbol" aria-hidden="true"><span>↗</span></div>
+          </div>
+          <p class="experience-bottom-note" data-reveal>DESIGN IS WHERE MY CREATIVE JOURNEY BEGAN. ENGINEERING IS HOW I KEEP MOVING FORWARD.</p>
+        </div>
+      </section>
+
+      <section class="projects section-padding" id="projects" aria-labelledby="projects-title">
+        <div class="section-frame">
+          <div class="section-heading" data-reveal>
+            <span class="section-index"><span class="index-diamond" aria-hidden="true">◆</span> 03 / SELECTED WORK</span>
+            <h2 id="projects-title">PROJECTS<span class="gold-dot">.</span></h2>
+            <span class="section-heading-note">THE WORK IN PROGRESS</span>
+          </div>
+
+          <article class="project-card" data-reveal>
+            <div class="project-visual" aria-hidden="true">
+              <span class="project-corner project-corner--tl" aria-hidden="true"></span>
+              <span class="project-corner project-corner--tr" aria-hidden="true"></span>
+              <span class="project-corner project-corner--bl" aria-hidden="true"></span>
+              <span class="project-corner project-corner--br" aria-hidden="true"></span>
+            </div>
+            <div class="project-info">
+              <div class="project-meta"><span>01 / ACADEMIC PROJECT</span><span class="project-status"><span class="status-dot"></span> IN PROGRESS</span></div>
+              <h3><span>SWAM</span><br />SALT WATER ALGAE<br />MONITORING SYSTEM</h3>
+              <p>An academic project exploring a Salt Water Algae Monitoring System.</p>
+              <div class="project-foot"><span>2025 — 2026</span><span>ONGOING <span aria-hidden="true">↗</span></span></div>
+            </div>
+          </article>
+
+          <div class="projects-note" data-reveal><span>+</span> MORE TO COME. STAY TUNED FOR WHAT'S NEXT.</div>
+        </div>
+      </section>
+
+      <section class="contact section-padding" id="contact" aria-labelledby="contact-title">
+        <div class="section-frame">
+          <div class="contact-heading" data-reveal>
+            <span class="section-index"><span class="index-diamond" aria-hidden="true">◆</span> 04 / REACH OUT</span>
+            <p>HAVE AN IDEA, A PROJECT, OR JUST WANT TO SAY HELLO?</p>
+            <h2 id="contact-title">LET'S MAKE<br /><span>IT HAPPEN.</span></h2>
+            <a class="contact-email" href="mailto:dangerwinmolo05@gmail.com">dangerwinmolo05@gmail.com <span aria-hidden="true">↗</span></a>
+          </div>
+
+          <div class="contact-socials" aria-label="Contact links" data-reveal>
+            <a class="social-link" href="mailto:dangerwinmolo05@gmail.com"><span class="social-index">01</span><span>EMAIL</span><span class="social-arrow" aria-hidden="true">↗</span></a>
+            <span class="social-link social-link--pending" aria-label="LinkedIn link to be added"><span class="social-index">02</span><span>LINKEDIN</span><span class="social-pending">SOON</span></span>
+            <span class="social-link social-link--pending" aria-label="Résumé not yet available"><span class="social-index">03</span><span>RESUME</span><span class="social-pending">SOON</span></span>
+            <a class="social-link" href="https://github.com/dangerwin" target="_blank" rel="noopener noreferrer"><span class="social-index">04</span><span>GITHUB</span><span class="social-arrow" aria-hidden="true">↗</span></a>
+            <a class="social-link" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=dangerwinmolo05%40gmail.com" target="_blank" rel="noopener noreferrer"><span class="social-index">05</span><span>GMAIL</span><span class="social-arrow" aria-hidden="true">↗</span></a>
+            <span class="social-link social-link--pending" aria-label="Twitter link to be added"><span class="social-index">06</span><span>TWITTER / X</span><span class="social-pending">SOON</span></span>
+            <a class="social-link" href="https://www.facebook.com/share/1CX4QhW4NZ/" target="_blank" rel="noopener noreferrer"><span class="social-index">07</span><span>FACEBOOK</span><span class="social-arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="section-frame footer-inner">
+        <a href="#top" class="footer-brand">DAN GERWIN <span>✳</span></a>
+        <span>DESIGNED & BUILT WITH CURIOSITY.</span>
+        <span>© <span id="year">2026</span> DAN GERWIN</span>
+        <a href="#top" class="back-to-top">BACK TO TOP ↑</a>
+      </div>
+    </footer>
+  </body>
+</html>

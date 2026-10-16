@@ -1,0 +1,24 @@
+/* The parent stage controls the canvas's actual height. */
+.lettering-stage {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.lettering-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  background: transparent;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lettering-canvas {
+    animation: none !important;
+    transition: none !important;
+  }
+}
